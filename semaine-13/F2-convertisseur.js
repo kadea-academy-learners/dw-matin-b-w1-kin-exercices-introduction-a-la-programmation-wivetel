@@ -21,4 +21,12 @@ Qu'est-ce que NaN, et pourquoi NaN === NaN renvoie false ? Quelle fonction utili
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
+const saisie = "2500";
 
+// La valeur de l'exepression saisie + 500 est une chaîne de caractères, cad + effectue une concaténation plutot que l'addition
+
+// Conversion de la chaîne de caractères en nombre avant d'effectuer l'addition avec 500
+const montant = Number(saisie);
+
+//Résultat attendu :
+console.log(`${saisie + 500}, puis ${montant + 500}; les prédictions vérifiées : ${Number("")}, ${Number("abc")}, ${Number(" 42 ")}, ${Number(true)}`);

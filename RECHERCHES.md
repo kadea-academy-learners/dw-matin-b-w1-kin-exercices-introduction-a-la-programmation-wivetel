@@ -35,7 +35,7 @@ console.log(ancienneFormation === null);
 
 **Question :** Qu'est-ce que NaN, et pourquoi NaN === NaN renvoie false ? Quelle fonction utiliser pour le détecter ?
 
-**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+**Ma réponse (avec mes mots, 3 à 5 lignes) :** 
 
 ...
 
@@ -44,10 +44,23 @@ console.log(ancienneFormation === null);
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const resultat = Number("abc");
+console.log(resultat);
+> NaN
+
+console.log(NaN === NaN);
+> false
+
+console.log(Number.isNaN(resultat));
+> true
 
 **Source :** 
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+Tu peux consulter la source ici : [MDN — Number.isNaN()](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN?utm_source=chatgpt.com)
+
+Ensuite, **avant le commit**, teste ton fichier F2 avec Node. Si tu obtiens bien `2500500`, `3000`, `0`, `NaN`, `42`, `1`, F2 sera prêt à être commité.
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Qu'est-ce que NaN, pourquoi NaN === NaN retourne false et quelle fonction permet de détecter NaN ? » Réponse vérifiée sur MDN Web Docs.
 
 ## F3 — Pair ou impair : le tirage des tickets
 
