@@ -11,17 +11,25 @@
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-...
+`null` représente l'absence volontaire d'une valeur en JavaScript.
+Pourtant, lorsque j'utilise `typeof null`, JavaScript retourne `"object"`.
+Ce comportement vient d'une ancienne particularité de JavaScript qui a été conservée pour des raisons de compatibilité.
+Donc `null` n'est pas réellement un objet, même si `typeof` affiche `"object"`.
 
 **Mon test dans la console :**
 
 ```js
-// colle ici le test que tu as exécuté et le résultat obtenu
-```
+const ancienneFormation = null;
 
-**Source :** 
+console.log(typeof ancienneFormation);
+// Résultat : object
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+console.log(ancienneFormation === null);
+// Résultat : true
+
+**Source :** MDN Web Docs — `typeof` : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/typeof
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Pourquoi `typeof null` renvoie-t-il `"object"` alors que `null` n'est pas un objet ? » Réponse vérifiée sur MDN Web Docs (`typeof`).
 
 ## F2 — Le convertisseur de saisie
 
