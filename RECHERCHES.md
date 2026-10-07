@@ -116,15 +116,41 @@ La documentation officielle est ici : [MDN — opérateur reste (%)](https://dev
 
 ...
 
+Oui, il est possible d'enchaîner plusieurs opérateurs ternaires en JavaScript.
+Cependant, plusieurs ternaires imbriqués peuvent rendre le code difficile à lire et à comprendre.
+Le ternaire est surtout pratique pour une condition simple avec deux résultats.
+Pour plusieurs conditions, je préfère utiliser `if / else if / else` afin de garder le code plus clair.
+
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const age = 16;
+
+// Détermination du statut selon l'âge avec un ternaire
+const statut = age >= 18 ? "majeur" : "mineur";
+
+// Détermination du tarif selon la tranche d'âge
+let tarif;
+
+if (age < 5) {
+    tarif = 0;
+} else if (age < 18) {
+    tarif = 500;
+} else {
+    tarif = 1000;
+}
+
+// Résultat attendu
+console.log(`Statut : ${statut} — Tarif : ${tarif} FC`);
+
+> "Statut : mineur — Tarif : 500 FC"
 
 **Source :** 
+Source officielle : [MDN — opérateur conditionnel (ternaire)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Conditional_operator?utm_source=chatgpt.com)
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Peut-on enchaîner plusieurs opérateurs ternaires en JavaScript et pourquoi est-ce souvent déconseillé ? » Réponse vérifiée sur MDN Web Docs.
 
 ## F5 — Ma première fonction fléchée
 
