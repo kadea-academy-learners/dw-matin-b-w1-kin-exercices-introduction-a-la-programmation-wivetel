@@ -68,6 +68,10 @@ Ensuite, **avant le commit**, teste ton fichier F2 avec Node. Si tu obtiens bien
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
+`-7 % 2` renvoie `-1`.
+Un nombre impair positif peut avoir un reste de `1`, mais un nombre impair négatif peut avoir un reste de `-1`.
+Donc tester `nombre % 2 === 1` ne fonctionne pas correctement avec tous les nombres négatifs.
+Il vaut mieux utiliser `nombre % 2 !== 0` pour détecter un nombre impair.
 ...
 
 **Mon test dans la console :**
@@ -75,10 +79,34 @@ Ensuite, **avant le commit**, teste ton fichier F2 avec Node. Si tu obtiens bien
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const numeroTicket = 17;
+if (numeroTicket % 2 === 0) {
+    console.log(`Ticket ${numeroTicket} : pair, tu gagnes un tote bag.`);
+} else {
+    console.log(`Ticket ${numeroTicket} : impair, tu gagnes un stylo.`);
+}
+> "Ticket 17 : impair, tu gagnes un stylo."
+
+const numeroTicket = 24;
+if (numeroTicket % 2 === 0) {
+    console.log(`Ticket ${numeroTicket} : pair, tu gagnes un tote bag.`);
+} else {
+    console.log(`Ticket ${numeroTicket} : impair, tu gagnes un stylo.`);
+}
+> "Ticket 24 : pair, tu gagnes un tote bag."
+
+const numeroTicket = 0;
+if (numeroTicket % 2 === 0) {
+    console.log(`Ticket ${numeroTicket} : pair, tu gagnes un tote bag.`);
+} else {
+    console.log(`Ticket ${numeroTicket} : impair, tu gagnes un stylo.`);
+}
+> "Ticket 0 : pair, tu gagnes un tote bag."
 
 **Source :** 
+La documentation officielle est ici : [MDN — opérateur reste (%)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder?utm_source=chatgpt.com)
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Que renvoie -7 % 2 et pourquoi vaut-il mieux utiliser % 2 !== 0 pour détecter un nombre impair ? » Réponse vérifiée sur MDN Web Docs.
 
 ## F4 — Le contrôleur du bus
 
