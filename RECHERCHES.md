@@ -198,16 +198,38 @@ MDN Web Docs — Fonctions fléchées: https://developer.mozilla.org/fr/docs/Web
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+Le mot-clé continue permet de sauter le tour actuel d'une boucle et de passer directement au tour suivant.
+Par exemple, je peux l'utiliser pour ne pas afficher le nombre 5 sans arrêter le compte à rebours.
+break, par contre, arrête complètement l'exécution de la boucle.
+Donc continue poursuit la boucle, tandis que break y met fin.
+
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+let resultat = "";
 
-**Source :** 
+for (let nombre = 10; nombre >= 1; nombre--) {
+    if (nombre === 5) {
+        continue;
+    }
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+    resultat += `${nombre}, `;
+}
+
+console.log(`${resultat}Décollage !`);
+
+> 10, 9, 8, 7, 6, 4, 3, 2, 1, Décollage !
+
+**Source :** source la documentation officielle : MDN — continue et MDN — break
+
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/continue
+
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/break
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « À quoi sert continue en JavaScript et quelle est la différence avec break ? » Réponse vérifiée sur MDN Web Docs.
 
 ## M1 — FizzBuzz kinois
 

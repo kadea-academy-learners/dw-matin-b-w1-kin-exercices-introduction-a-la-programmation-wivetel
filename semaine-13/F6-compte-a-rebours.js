@@ -20,4 +20,16 @@ Recherche (à rédiger dans RECHERCHES.md) :
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
+// debut des codes
 
+let resultat = "";
+
+for (let nombre = 10; nombre >= 1; nombre--) {
+    if (nombre === 5) {
+        continue;
+    }
+
+    resultat += `${nombre}, `;
+}
+
+console.log(`${resultat}Décollage !`);
