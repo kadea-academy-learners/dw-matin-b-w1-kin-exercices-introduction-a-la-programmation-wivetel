@@ -25,3 +25,18 @@ Quand peut-on enlever les parenthèses autour des paramètres, et quand peut-on 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
+// debut mes codes
+
+// Version classique donnée dans l'énoncé
+function saluerClassique(prenom) {
+    return "Mbote " + prenom + " !";
+}
+
+// Version fléchée avec un gabarit littéral comme demandée dans l'énoncé
+const saluer = prenom => `Mbote ${prenom} !`;
+
+// Fonction fléchée qui retourne le carré d'un nombre
+const carre = nombre => nombre * nombre;
+
+// Affichage des résultats
+console.log(`${saluer("Lys")} puis ${carre(7)}`);

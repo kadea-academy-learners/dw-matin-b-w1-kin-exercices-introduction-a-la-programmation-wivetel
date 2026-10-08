@@ -148,7 +148,7 @@ console.log(`Statut : ${statut} — Tarif : ${tarif} FC`);
 > "Statut : mineur — Tarif : 500 FC"
 
 **Source :** 
-Source officielle : [MDN — opérateur conditionnel (ternaire)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Conditional_operator?utm_source=chatgpt.com)
+Source officielle : [MDN — opérateur conditionnel (ternaire)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Conditional_operator)
 
 **IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Peut-on enchaîner plusieurs opérateurs ternaires en JavaScript et pourquoi est-ce souvent déconseillé ? » Réponse vérifiée sur MDN Web Docs.
 
@@ -159,16 +159,37 @@ Source officielle : [MDN — opérateur conditionnel (ternaire)](https://develop
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+Avec une fonction fléchée, on peut enlever les parenthèses lorsqu’il y a un seul paramètre.
+S’il n’y a aucun paramètre, les parenthèses sont obligatoires, et elles le sont aussi lorsqu’il y a plusieurs paramètres.
+On peut également enlever return et les accolades lorsque la fonction contient une seule expression à retourner.
+Par contre, avec plusieurs instructions, il faut garder les accolades et utiliser return si on veut retourner une valeur.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+// Version classique donnée dans l'énoncé
+function saluerClassique(prenom) {
+    return "Mbote " + prenom + " !";
+}
+
+// Version fléchée avec un gabarit littéral comme demandée dans l'énoncé
+const saluer = prenom => `Mbote ${prenom} !`;
+
+// Fonction fléchée qui retourne le carré d'un nombre
+const carre = nombre => nombre * nombre;
+
+// Affichage des résultats
+console.log(`${saluer("Lys")} puis ${carre(7)}`);
+
+> Mbote Lys ! puis 49
 
 **Source :** 
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+MDN Web Docs — Fonctions fléchées: https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Quand peut-on enlever les parenthèses autour des paramètres d'une fonction fléchée, et quand peut-on enlever return et les accolades ? » Réponse vérifiée sur MDN Web Docs.
 
 ## F6 — Le compte à rebours
 
