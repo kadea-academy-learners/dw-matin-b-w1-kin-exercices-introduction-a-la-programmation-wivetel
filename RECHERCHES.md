@@ -56,7 +56,7 @@ console.log(Number.isNaN(resultat));
 
 **Source :** 
 
-Tu peux consulter la source ici : [MDN — Number.isNaN()](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN?utm_source=chatgpt.com)
+Tu peux consulter la source ici : [MDN — Number.isNaN()](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
 
 Ensuite, **avant le commit**, teste ton fichier F2 avec Node. Si tu obtiens bien `2500500`, `3000`, `0`, `NaN`, `42`, `1`, F2 sera prêt à être commité.
 
@@ -104,7 +104,7 @@ if (numeroTicket % 2 === 0) {
 > "Ticket 0 : pair, tu gagnes un tote bag."
 
 **Source :** 
-La documentation officielle est ici : [MDN — opérateur reste (%)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder?utm_source=chatgpt.com)
+La documentation officielle est ici : [MDN — opérateur reste (%)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder)
 
 **IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Que renvoie -7 % 2 et pourquoi vaut-il mieux utiliser % 2 !== 0 pour détecter un nombre impair ? » Réponse vérifiée sur MDN Web Docs.
 
@@ -247,7 +247,14 @@ Malgré sa simplicité, il permet donc d'évaluer rapidement la compréhension d
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
-if (nombre % 3 === 0 && nombre % 5 === 0) {
+ilet resultat = "";
+for (let nombre = 1; nombre <= 30; nombre++) {
+  let valeur;
+  // Le cas multiple de 3 et de 5 doit être vérifié en premier,
+  // sinon 15 serait déjà considéré comme un simple multiple de 3 si on commence par chercher que le multiple de 3 avant.
+  // et cela affichera directement: Malewa au lieu de MalewaWewa.
+
+  if (nombre % 3 === 0 && nombre % 5 === 0) {
     valeur = "MalewaWewa";
   } else if (nombre % 3 === 0) {
     valeur = "Malewa";
@@ -261,10 +268,11 @@ if (nombre % 3 === 0 && nombre % 5 === 0) {
 }
 
 console.log(resultat);
+
 ```
 > 1, 2, Malewa, 4, Wewa, Malewa, 7, 8, Malewa, Wewa, 11, Malewa, 13, 14, MalewaWewa, 16, 17, Malewa, 19, Wewa, Malewa, 22, 23, Malewa, Wewa, 26, Malewa, 28, 29, MalewaWewa,
 **Source :** 
-Pour la source technique sur `%` : [MDN — Opérateur reste (%)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder?utm_source=chatgpt.com).
+Pour la source technique sur `%` : [MDN — Opérateur reste (%)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder.
 
 **Petite remarque :** MDN explique bien le modulo et les notions JavaScript utilisées dans FizzBuzz, mais ce n'est pas vraiment une source sur **l'histoire de FizzBuzz dans les entretiens**. Donc si ton exercice exige une source précise sur cette question, on peut choisir une source plus directement adaptée.
 
@@ -277,16 +285,59 @@ Pour la source technique sur `%` : [MDN — Opérateur reste (%)](https://develo
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+La méthode `toLocaleString()` permet de formater un nombre selon les règles d'une langue ou d'un pays.
+En utilisant la locale française `fr-FR`, les milliers sont séparés par un espace.
+Ainsi, le nombre `75000` peut être affiché sous la forme `75 000`.
+Cette méthode change seulement l'affichage du nombre et non sa valeur.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const retirer = (solde, montant) => {
+    // Vérification du montant demandé
+    if (montant < 0 || montant % 5000 !== 0) {
+        return `Montant invalide : multiples de 5 000 FC uniquement`;
+    }
+
+    // Vérification du plafond de retrait
+    if (montant > 500000) {
+        return `Plafond dépassé : 500 000 FC maximum`;
+    }
+
+    // Vérification du solde disponible
+    if (montant > solde) {
+        return `Solde insuffisant`;
+    }
+
+    // Calcul du nouveau solde
+    const nouveauSolde = solde - montant;
+
+    return `Retrait accepté. Nouveau solde : ${nouveauSolde} FC`;
+};
+
+console.log(retirer(100000, 25000));
+console.log(retirer(100000, 12000));
+console.log(retirer(1000000, 600000));
+console.log(retirer(20000, 50000));
+
+> Retrait accepté. Nouveau solde : 75000 FC
+> Montant invalide : multiples de 5 000 FC uniquement
+> Plafond dépassé : 500 000 FC maximum
+> Solde insuffisant
 
 **Source :** 
+La documentation correspondante est [MDN — Number.prototype.toLocaleString()](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString).
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+### Attention pour ton code M2
+
+La recherche te fait découvrir `toLocaleString()`, mais le **résultat attendu du programme** demande :
+
+```text id="zc8ru7"
+Retrait accepté. Nouveau solde : 75000 FC
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Comment afficher 75000 sous la forme 75 000 avec toLocaleString() en JavaScript ? » Réponse vérifiée sur MDN Web Docs.
 
 ## M3 — Le détecteur de champs vides (Truthy / Falsy)
 

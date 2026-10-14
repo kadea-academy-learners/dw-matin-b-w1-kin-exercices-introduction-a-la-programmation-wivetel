@@ -24,4 +24,30 @@ Comment afficher 75000 sous la forme 75 000 avec toLocaleString() ?
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
+// debut des codes
+const retirer = (solde, montant) => {
+    // Vérification du montant demandé
+    if (montant < 0 || montant % 5000 !== 0) {
+        return `Montant invalide : multiples de 5 000 FC uniquement`;
+    }
 
+    // Vérification du plafond de retrait
+    if (montant > 500000) {
+        return `Plafond dépassé : 500 000 FC maximum`;
+    }
+
+    // Vérification du solde disponible
+    if (montant > solde) {
+        return `Solde insuffisant`;
+    }
+
+    // Calcul du nouveau solde
+    const nouveauSolde = solde - montant;
+
+    return `Retrait accepté. Nouveau solde : ${nouveauSolde} FC`;
+};
+
+console.log(retirer(100000, 25000));
+console.log(retirer(100000, 12000));
+console.log(retirer(1000000, 600000));
+console.log(retirer(20000, 50000));
