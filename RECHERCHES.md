@@ -238,16 +238,37 @@ https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/break
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+FizzBuzz est célèbre dans les entretiens parce que c'est un exercice simple qui permet de vérifier les bases de la programmation.
+Il permet de voir si le candidat maîtrise les boucles, les conditions et l'opérateur modulo.
+Il permet aussi de vérifier comment le développeur organise sa logique, notamment l'ordre de ses conditions.
+Malgré sa simplicité, il permet donc d'évaluer rapidement la compréhension des notions fondamentales.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+if (nombre % 3 === 0 && nombre % 5 === 0) {
+    valeur = "MalewaWewa";
+  } else if (nombre % 3 === 0) {
+    valeur = "Malewa";
+  } else if (nombre % 5 === 0) {
+    valeur = "Wewa";
+  } else {
+    valeur = nombre;
+  }
+
+  resultat = `${resultat}${valeur}, `;
+}
+
+console.log(resultat);
 ```
-
+> 1, 2, Malewa, 4, Wewa, Malewa, 7, 8, Malewa, Wewa, 11, Malewa, 13, 14, MalewaWewa, 16, 17, Malewa, 19, Wewa, Malewa, 22, 23, Malewa, Wewa, 26, Malewa, 28, 29, MalewaWewa,
 **Source :** 
+Pour la source technique sur `%` : [MDN — Opérateur reste (%)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder?utm_source=chatgpt.com).
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**Petite remarque :** MDN explique bien le modulo et les notions JavaScript utilisées dans FizzBuzz, mais ce n'est pas vraiment une source sur **l'histoire de FizzBuzz dans les entretiens**. Donc si ton exercice exige une source précise sur cette question, on peut choisir une source plus directement adaptée.
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Pourquoi FizzBuzz est-il célèbre dans les entretiens d'embauche de développeurs ? » Réponse vérifiée avec la documentation MDN sur les notions utilisées.
 
 ## M2 — Le distributeur automatique (DAB)
 
