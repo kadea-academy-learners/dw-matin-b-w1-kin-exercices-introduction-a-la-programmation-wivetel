@@ -23,4 +23,19 @@ Que fait l'opérateur ?? (coalescence des nuls) et en quoi est-il différent de 
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
+// debut des codes
 
+// Première version avec || : elle contient un problème avec le score 0
+const afficherScoreBug = score => `Score : ${score || "aucun"}`;
+
+console.log(`${afficherScoreBug(15)}, ${afficherScoreBug(0)}, ${afficherScoreBug(undefined)}`);
+
+// Version corrigée avec ??
+const afficherScore = score => `Score : ${score ?? "aucun"}`;
+
+console.log(`${afficherScore(15)}, ${afficherScore(0)}, ${afficherScore(undefined)}`);
+
+// Bonus : le message s'affiche uniquement si estConnecte est truthy
+const estConnecte = true;
+
+estConnecte && console.log(`Bienvenue !`);

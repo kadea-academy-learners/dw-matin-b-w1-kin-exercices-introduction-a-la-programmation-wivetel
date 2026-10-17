@@ -373,16 +373,40 @@ console.log(`${estRempli("")}, ${estRempli("Esther")}, ${estRempli(0)}, ${estRem
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+L'opérateur `??` permet d'utiliser une valeur par défaut lorsque la valeur de gauche est `null` ou `undefined`.
+L'opérateur `||`, lui, utilise la valeur par défaut lorsque la valeur de gauche est falsy.
+Avec `||`, des valeurs valides comme `0`, `false` ou `""` peuvent donc être remplacées.
+Avec `??`, ces valeurs sont conservées car elles ne sont ni `null` ni `undefined`.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+// Première version avec || : elle contient un problème avec le score 0
+const afficherScoreBug = score => `Score : ${score || "aucun"}`;
+
+console.log(`${afficherScoreBug(15)}, ${afficherScoreBug(0)}, ${afficherScoreBug(undefined)}`);
+
+// Version corrigée avec ??
+const afficherScore = score => `Score : ${score ?? "aucun"}`;
+
+console.log(`${afficherScore(15)}, ${afficherScore(0)}, ${afficherScore(undefined)}`);
+
+// Bonus : le message s'affiche uniquement si estConnecte est truthy
+const estConnecte = true;
+
+estConnecte && console.log(`Bienvenue !`);
+
+> Score : 15, Score : aucun, Score : aucun
+> Score : 15, Score : 0, Score : aucun
+> Bienvenue !
 
 **Source :** 
+La source officielle est [MDN — Opérateur de coalescence des nuls (??)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing).
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Que fait l'opérateur ?? en JavaScript et quelle est la différence avec || ? »
+Réponse vérifiée sur MDN Web Docs.
 
 ## M5 — La vitre teintée (portée de bloc)
 
