@@ -38,16 +38,45 @@ Pourquoi var est-il banni du code moderne ? Cherche ce que sont la portée de fo
 // Mes prédictions (avant d'exécuter) :
 //
 
-const ville = 'Kinshasa';
+// ===== CODE AVANT CORRECTION =====
+// Testé : affiche "Kinshasa", puis provoque une ReferenceError.
+
+/*
+const ville = "Kinshasa";
+
 if (true) {
-  const commune = 'Gombe';
-  console.log(ville);
+    const commune = "Gombe";
+    console.log(ville);
 }
+
 console.log(commune);
 
 const afficher = () => {
-  const secret = 'pondu';
-  return secret;
+    const secret = "pondu";
+    return secret;
 };
+
 console.log(afficher());
 console.log(secret);
+*/
+
+// ===== CODE APRÈS CORRECTION =====
+
+// "Kinshasa" va s'afficher car ville est accessible dans le bloc if.
+// commune va provoquer une ReferenceError car elle est déclarée dans le bloc if.
+// Le programme va s'arrêter à cette erreur, donc afficher() ne sera pas exécutée.
+
+const ville = "Kinshasa";
+
+if (true) {
+    const commune = "Gombe";
+    console.log(ville);
+    console.log(commune);
+}
+
+const afficher = () => {
+    const secret = "pondu";
+    return secret;
+};
+
+console.log(afficher());

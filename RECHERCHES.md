@@ -415,6 +415,11 @@ Réponse vérifiée sur MDN Web Docs.
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+`var` est généralement évité dans le code JavaScript moderne car il a une portée de fonction et non une portée de bloc comme `let` et `const`.
+Une variable déclarée avec `var` dans un bloc `if` peut donc rester accessible en dehors de ce bloc, ce qui peut provoquer des erreurs difficiles à repérer.
+De plus, les déclarations avec `var` sont remontées au début de leur portée par le mécanisme appelé hoisting.
+Aujourd'hui, on préfère `const` par défaut et `let` lorsqu'une variable doit être réassignée.
+
 
 **Mon test dans la console :**
 
@@ -422,9 +427,29 @@ Réponse vérifiée sur MDN Web Docs.
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
 
-**Source :** 
+const ville = "Kinshasa";
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+if (true) {
+    const commune = "Gombe";
+    console.log(ville);
+    console.log(commune);
+}
+
+const afficher = () => {
+    const secret = "pondu";
+    return secret;
+};
+
+console.log(afficher());
+
+> Kinshasa
+> Gombe
+> pondu
+
+**Source :** 
+La source officielle : [MDN — var](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/var)
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Pourquoi var est-il évité en JavaScript moderne ? Explique la portée de fonction et le hoisting. »
 
 ## M6 — Le détective du return
 
