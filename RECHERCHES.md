@@ -346,16 +346,25 @@ Retrait accepté. Nouveau solde : 75000 FC
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+Une valeur falsy est une valeur que JavaScript considère comme fausse lorsqu'elle est utilisée dans une condition.
+Les valeurs falsy sont `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined` et `NaN`.
+Il existe aussi `document.all`, qui est un cas particulier historique utilisé dans les navigateurs.
+Les autres valeurs sont truthy, même `"0"` et `" "` qui sont des chaînes de caractères non vides.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const estRempli = valeur => valeur ? "rempli" : "vide";
 
-**Source :** 
+console.log(`${estRempli("")}, ${estRempli("Esther")}, ${estRempli(0)}, ${estRempli(42)}, ${estRempli(null)}, ${estRempli(undefined)}, ${estRempli(NaN)}, ${estRempli(" ")}, ${estRempli("0")}, ${estRempli(false)}`);
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+> vide, rempli, vide, rempli, vide, vide, vide, rempli, rempli, vide
+
+**Source :** https://developer.mozilla.org/fr/docs/Glossary/Falsy
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Quelle est la liste complète des valeurs falsy en JavaScript ? » Réponse vérifiée sur MDN Web Docs.
 
 ## M4 — Le score par défaut : || contre ??
 
