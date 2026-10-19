@@ -577,14 +577,35 @@ console.log(`Total après 12 semaines : ${total} FC`);
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+La boucle `while` vérifie la condition avant d'exécuter son bloc de code.
+La boucle `do...while` exécute d'abord le bloc une fois, puis vérifie la condition.
+Ainsi, avec une batterie qui commence à 15 %, `while` fait 0 tour car `15 > 20` est faux dès le départ.
+Avec `do...while`, la boucle ferait quand même 1 tour avant de vérifier la condition.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+let batterie = 100;
+let heures = 0;
 
-**Source :** 
+while (batterie > 20) {
+    batterie -= 15;
+    heures += 1;
+}
+
+console.log(`Après ${heures} h, batterie à ${batterie} % : branche ton téléphone !`);
+
+> Après 6 h, batterie à 10 % : branche ton téléphone !
+
+**Source :**
+
+while :
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/while
+
+do...while :
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/do...while
 
 **IA utilisée ? (prompt + vérification sur MDN) :** non
 
