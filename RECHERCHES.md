@@ -506,16 +506,69 @@ console.log(saluer("Ney"));
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+Les opérateurs d'affectation composée permettent de modifier une variable en utilisant sa valeur actuelle.
+Par exemple, `total += 2000` est une écriture plus courte de `total = total + 2000`.
+
+- `+=` : addition → `x += 2`
+- `-=` : soustraction → `x -= 2`
+- `*=` : multiplication → `x *= 2`
+- `/=` : division → `x /= 2`
+- `%=` : reste de division → `x %= 2`
+- `**=` : puissance → `x **= 2`
+- `<<=` : décalage binaire à gauche → `x <<= 1`
+- `>>=` : décalage binaire à droite → `x >>= 1`
+- `>>>=` : décalage binaire à droite non signé → `x >>>= 1`
+- `&=` : ET binaire → `x &= 3`
+- `^=` : OU exclusif binaire → `x ^= 3`
+- `|=` : OU binaire → `x |= 3`
+- `&&=` : affectation ET logique → `x &&= 10`
+- `||=` : affectation OU logique → `x ||= 10`
+- `??=` : affectation si null ou undefined → `x ??= 10`
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+let total = 0;
+
+const epargneHebdomadaire = 2000;
+const bonus = 1000;
+
+for (let semaine = 1; semaine <= 12; semaine++) {
+    // Patience épargne 2 000 FC chaque semaine
+    total += epargneHebdomadaire;
+
+    // Toutes les 4 semaines, sa tante ajoute un bonus de 1 000 FC
+    if (semaine % 4 === 0) {
+        total += bonus;
+        console.log(`Semaine ${semaine} : ${total} FC (bonus !)`);
+    } else {
+        console.log(`Semaine ${semaine} : ${total} FC`);
+    }
+}
+
+console.log(`Total après 12 semaines : ${total} FC`);
+
+> Semaine 1 : 2000 FC
+> Semaine 2 : 4000 FC
+> Semaine 3 : 6000 FC
+> Semaine 4 : 9000 FC (bonus !)
+> Semaine 5 : 11000 FC
+> Semaine 6 : 13000 FC
+> Semaine 7 : 15000 FC
+> Semaine 8 : 18000 FC (bonus !)
+> Semaine 9 : 20000 FC
+> Semaine 10 : 22000 FC
+> Semaine 11 : 24000 FC
+> Semaine 12 : 27000 FC (bonus !)
+> Total après 12 semaines : 27000 FC
+
 
 **Source :** 
+[MDN — Opérateurs d'affectation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Expressions_and_operators#op%C3%A9rateurs_daffectation)
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Quels sont les opérateurs d'affectation composée en JavaScript ? Donne un exemple pour chacun. »
 
 ## M8 — La batterie qui se décharge
 
