@@ -1,10 +1,10 @@
 # 📊 Évaluation automatique — Semaine 13 (JavaScript)
 
-> Générée le 2026-10-19 20:45 UTC · commit `e22af16` · évaluation déterministe basée uniquement sur le cahier d'exercices et le barème.
+> Générée le 2026-10-19 21:08 UTC · commit `9dd2ca9` · évaluation déterministe basée uniquement sur le cahier d'exercices et le barème.
 
 ## Note finale : **15 / 15**
 
-Exercices : **93 / 95** · Parfaits : 18 / 19 · Non rendus : 0
+Exercices : **95 / 95** · Parfaits : 19 / 19 · Non rendus : 0
 
 ## 1. Résultat par exercice
 
@@ -15,7 +15,7 @@ Exercices : **93 / 95** · Parfaits : 18 / 19 · Non rendus : 0
 | **F3** — Pair ou impair : le tirage des tickets | **5** | ✅ Parfait | 3/3 | 3 | ✅ | Parfait ! Modulo et égalité stricte maîtrisés, les cas 17, 24 et 0 sont corrects.<br>📚 Recherche complète, testée et sourcée (MDN). |
 | **F4** — Le contrôleur du bus | **5** | ✅ Parfait | 5/5 | 3 | ✅ | Parfait ! Ternaire simple et conditions à trois branches corrects, bornes respectées.<br>📚 Recherche complète, testée et sourcée (MDN). |
 | **F5** — Ma première fonction fléchée | **5** | ✅ Parfait | 4/4 | 3 | ✅ | Parfait ! Fonctions fléchées concises avec retour implicite et gabarit littéral.<br>📚 Recherche complète, testée et sourcée (MDN). |
-| **F6** — Le compte à rebours | **3** | 🟠 Résultat incorrect | 1/2 | 3 | ✅ | La séquence affichée est fausse : vérifie le départ (10), la condition (>= 1), le pas et le saut du 5.<br>• La version qui affiche seulement les pairs (10, 8, 6, 4, 2) est absente.<br>📚 Recherche complète, testée et sourcée (MDN). |
+| **F6** — Le compte à rebours | **5** | ✅ Parfait | 2/2 | 3 | ✅ | Parfait ! Les 3 parties de la boucle `for` sont maîtrisées et `continue` est bien placé.<br>📚 Recherche complète, testée et sourcée (MDN). |
 | **M1** — FizzBuzz kinois | **5** | ✅ Parfait | 3/3 | 3 | ✅ | Parfait ! Conditions ordonnées du cas le plus restrictif au plus général, résultat exact de 1 à 30.<br>📚 Recherche complète, testée et sourcée (MDN). |
 | **M2** — Le distributeur automatique (DAB) | **5** | ✅ Parfait | 9/9 | 3 | ✅ | Parfait ! Règles vérifiées dans le bon ordre, cas limites gérés, la fonction renvoie son message.<br>📚 Recherche complète, testée et sourcée (MDN). |
 | **M3** — Le détecteur de champs vides (Truthy / Falsy) | **5** | ✅ Parfait | 11/11 | 3 | ✅ | Parfait ! Les valeurs truthy / falsy sont maîtrisées, ternaire sans comparaison.<br>📚 Recherche complète, testée et sourcée (MDN). |
@@ -37,7 +37,7 @@ Exercices : **93 / 95** · Parfaits : 18 / 19 · Non rendus : 0
 | Fondations : variables, types primitifs et conversions | Avancé (98 %) | **3** | const par défaut et let uniquement pour les valeurs réassignées, choix justifiés. typeof (y compris null) et conversions Number(''), Number('abc') maîtrisés. Truthy / falsy expliqués.<br>_Preuves : F1, F2, M3_ |
 | Logique conditionnelle et opérateurs | Avancé (100 %) | **3** | Conditions ordonnées du cas le plus restrictif au plus général (FizzBuzz, DAB) et cas limites testés (0, négatif, plafond). ?? utilisé à bon escient.<br>_Preuves : F3, F4, M1, M2, M4_ |
 | Fonctions, return et portée | Avancé (100 %) | **3** | Fonctions fléchées concises (retour implicite quand c'est pertinent), paramètres par défaut, une fonction pour une responsabilité. Bug de l'ASI et bannissement de var expliqués.<br>_Preuves : F5, M2, M5, M6_ |
-| Boucles, accumulateurs et méthodes de tableau | Avancé (90 %) | **3** | Boucle adaptée choisie (for / while). Tableaux d'objets traités avec .filter(), .map(), .find() et un return dans chaque callback ; cas undefined de .find() géré ; console.table() utilisé.<br>_Preuves : F6, M1, M7, M8 ; niveau Avancé : A2, A3, A4, A5_ |
+| Boucles, accumulateurs et méthodes de tableau | Avancé (100 %) | **3** | Boucle adaptée choisie (for / while). Tableaux d'objets traités avec .filter(), .map(), .find() et un return dans chaque callback ; cas undefined de .find() géré ; console.table() utilisé.<br>_Preuves : F6, M1, M7, M8 ; niveau Avancé : A2, A3, A4, A5_ |
 | Recherche, qualité du code et restitution | Avancé (99 %) | **3** | RECHERCHES.md complet, testé et sourcé (MDN). Commits réguliers et explicites (un par exercice).<br>_Recherches 98 % · commits par exercice 100 % · règles de code 100 %_ |
 | **Total** | | **15 / 15** | |
 
