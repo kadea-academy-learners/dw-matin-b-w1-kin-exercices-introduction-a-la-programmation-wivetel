@@ -906,16 +906,96 @@ https://developer.mozilla.org/fr/docs/Web/API/console/table_static
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+La méthode `.sort()` permet de trier les éléments d'un tableau.
+Pour classer les apprenants de la meilleure à la moins bonne moyenne, on compare les moyennes avec `b.moyenne - a.moyenne`.
+La méthode `.sort()` modifie directement le tableau sur lequel elle est utilisée.
+Pour éviter de modifier le tableau original, on peut d'abord créer une copie avec `[...bulletin]`, puis trier cette copie.
+
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const apprenants = [
+    { nom: "Amani", notes: [14, 16, 15] },
+    { nom: "Bijou", notes: [17, 18, 16] },
+    { nom: "Christian", notes: [8, 11, 9] },
+    { nom: "Divine", notes: [12, 10, 14] },
+    { nom: "Exaucé", notes: [16, 15, 19] }
+];
+
+// 2. Calculer la moyenne avec une boucle et un accumulateur
+const calculerMoyenne = (notes) => {
+    let total = 0;
+
+    for (let i = 0; i < notes.length; i++) {
+        total += notes[i];
+    }
+
+    const moyenne = total / notes.length;
+
+    return Math.round(moyenne * 10) / 10;
+};
+
+// 3. Créer le bulletin avec map()
+const bulletin = apprenants.map((apprenant) => {
+    const moyenne = calculerMoyenne(apprenant.notes);
+
+    let mention;
+
+    if (moyenne >= 16) {
+        mention = "Excellent";
+    } else if (moyenne >= 10) {
+        mention = "Admis";
+    } else {
+        mention = "Rattrapage";
+    }
+
+    return {
+        nom: apprenant.nom,
+        moyenne: moyenne,
+        mention: mention
+    };
+});
+
+// 4. Compter les admis avec filter()
+const admis = bulletin.filter(
+    (apprenant) =>
+        apprenant.mention === "Excellent" ||
+        apprenant.mention === "Admis"
+);
+
+// Trouver le premier Excellent avec find()
+const premierExcellent = bulletin.find(
+    (apprenant) => apprenant.mention === "Excellent"
+);
+
+// 5. Afficher le bulletin
+console.table(bulletin);
+
+console.log(`${admis.length} admis`);
+console.log(`Premier Excellent : ${premierExcellent.nom}`);
+
+// resultat
+
+┌─────────┬─────────────┬─────────┬──────────────┐
+│ (index) │ nom         │ moyenne │ mention      │
+├─────────┼─────────────┼─────────┼──────────────┤
+│ 0       │ 'Amani'     │ 15      │ 'Admis'      │
+│ 1       │ 'Bijou'     │ 17      │ 'Excellent'  │
+│ 2       │ 'Christian' │ 9.3     │ 'Rattrapage' │
+│ 3       │ 'Divine'    │ 12      │ 'Admis'      │
+│ 4       │ 'Exaucé'    │ 16.7    │ 'Excellent'  │
+└─────────┴─────────────┴─────────┴──────────────┘
+4 admis
+Premier Excellent : Bijou
 
 **Source :** 
+MDN Web Docs — Array.prototype.sort()
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Comment utiliser sort() pour classer un tableau d'objets de la plus grande à la plus petite moyenne, et comment éviter de modifier le tableau original ? »
 
 ## A5 — Le nombre mystère
 
