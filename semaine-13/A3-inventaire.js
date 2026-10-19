@@ -30,4 +30,89 @@ Comment afficher seulement les colonnes nom et stock avec console.table() ? Et q
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
+// debut des codes
+
+const produits = [
+    {
+        id: 101,
+        nom: "Clé USB 32 Go",
+        categorie: "Informatique",
+        prixFC: 14000,
+        stock: 25
+    },
+    {
+        id: 102,
+        nom: "Sac à dos Kadea",
+        categorie: "Accessoires",
+        prixFC: 42000,
+        stock: 0
+    },
+    {
+        id: 103,
+        nom: "Souris sans fil",
+        categorie: "Informatique",
+        prixFC: 28000,
+        stock: 12
+    },
+    {
+        id: 104,
+        nom: "Gourde isotherme",
+        categorie: "Accessoires",
+        prixFC: 21000,
+        stock: 8
+    },
+    {
+        id: 105,
+        nom: "Casque audio",
+        categorie: "Informatique",
+        prixFC: 70000,
+        stock: 0
+    },
+    {
+        id: 106,
+        nom: "Carnet de notes",
+        categorie: "Papeterie",
+        prixFC: 7000,
+        stock: 40
+    }
+];
+
+// 2. Afficher l'inventaire
+console.table(produits);
+
+// 3. Garder uniquement les produits de la catégorie Informatique
+const produitsInformatique = produits.filter(
+    (produit) => produit.categorie === "Informatique"
+);
+
+console.table(produitsInformatique);
+
+// 4. Ajouter le prix en USD
+const TAUX = 2800;
+
+const produitsAvecPrixUSD = produits.map((produit) => {
+    return {
+        ...produit,
+        prixUSD: Math.round(produit.prixFC / TAUX)
+    };
+});
+
+console.table(produitsAvecPrixUSD);
+
+// 5. Rechercher un produit avec son id
+const chercherProduit = (id) => {
+    const produit = produits.find((produit) => produit.id === id);
+
+    return produit ?? "Produit introuvable";
+};
+
+console.table(chercherProduit(104));
+console.table(chercherProduit(999));
+
+// 6. Compter les produits en rupture de stock
+const produitsEnRupture = produits.filter(
+    (produit) => produit.stock === 0
+);
+
+console.log(`${produitsEnRupture.length} produits en rupture.`);
 

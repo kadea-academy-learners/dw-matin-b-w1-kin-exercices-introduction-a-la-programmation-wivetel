@@ -755,16 +755,149 @@ https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Ar
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+`console.table()` accepte un deuxième argument qui permet de choisir les colonnes à afficher.
+Par exemple, `console.table(produits, ["nom", "stock"])` affiche uniquement les colonnes `nom` et `stock`.
+La méthode `.find()` renvoie `undefined` lorsqu'aucun élément ne correspond à la condition.
+La méthode `.filter()` renvoie un tableau vide `[]` lorsqu'aucun élément ne correspond.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const produits = [
+    {
+        id: 101,
+        nom: "Clé USB 32 Go",
+        categorie: "Informatique",
+        prixFC: 14000,
+        stock: 25
+    },
+    {
+        id: 102,
+        nom: "Sac à dos Kadea",
+        categorie: "Accessoires",
+        prixFC: 42000,
+        stock: 0
+    },
+    {
+        id: 103,
+        nom: "Souris sans fil",
+        categorie: "Informatique",
+        prixFC: 28000,
+        stock: 12
+    },
+    {
+        id: 104,
+        nom: "Gourde isotherme",
+        categorie: "Accessoires",
+        prixFC: 21000,
+        stock: 8
+    },
+    {
+        id: 105,
+        nom: "Casque audio",
+        categorie: "Informatique",
+        prixFC: 70000,
+        stock: 0
+    },
+    {
+        id: 106,
+        nom: "Carnet de notes",
+        categorie: "Papeterie",
+        prixFC: 7000,
+        stock: 40
+    }
+];
+
+// 2. Afficher l'inventaire
+console.table(produits);
+
+// 3. Garder uniquement les produits de la catégorie Informatique
+const produitsInformatique = produits.filter(
+    (produit) => produit.categorie === "Informatique"
+);
+
+console.log(produitsInformatique);
+
+// 4. Ajouter le prix en USD
+const TAUX = 2800;
+
+const produitsAvecPrixUSD = produits.map((produit) => {
+    return {
+        ...produit,
+        prixUSD: Math.round(produit.prixFC / TAUX)
+    };
+});
+
+console.table(produitsAvecPrixUSD);
+
+// 5. Rechercher un produit avec son id
+const chercherProduit = (id) => {
+    const produit = produits.find((produit) => produit.id === id);
+
+    return produit ?? "Produit introuvable";
+};
+
+console.table(chercherProduit(104));
+console.table(chercherProduit(999));
+
+// 6. Compter les produits en rupture de stock
+const produitsEnRupture = produits.filter(
+    (produit) => produit.stock === 0
+);
+
+console.log(`${produitsEnRupture.length} produits en rupture.`);
+
+// Resultat
+┌─────────┬─────┬────────────────────┬────────────────┬────────┬───────┐
+│ (index) │ id  │ nom                │ categorie      │ prixFC │ stock │
+├─────────┼─────┼────────────────────┼────────────────┼────────┼───────┤
+│ 0       │ 101 │ 'Clé USB 32 Go'    │ 'Informatique' │ 14000  │ 25    │
+│ 1       │ 102 │ 'Sac à dos Kadea'  │ 'Accessoires'  │ 42000  │ 0     │
+│ 2       │ 103 │ 'Souris sans fil'  │ 'Informatique' │ 28000  │ 12    │
+│ 3       │ 104 │ 'Gourde isotherme' │ 'Accessoires'  │ 21000  │ 8     │
+│ 4       │ 105 │ 'Casque audio'     │ 'Informatique' │ 70000  │ 0     │
+│ 5       │ 106 │ 'Carnet de notes'  │ 'Papeterie'    │ 7000   │ 40    │
+└─────────┴─────┴────────────────────┴────────────────┴────────┴───────┘
+┌─────────┬─────┬───────────────────┬────────────────┬────────┬───────┐
+│ (index) │ id  │ nom               │ categorie      │ prixFC │ stock │
+├─────────┼─────┼───────────────────┼────────────────┼────────┼───────┤
+│ 0       │ 101 │ 'Clé USB 32 Go'   │ 'Informatique' │ 14000  │ 25    │
+│ 1       │ 103 │ 'Souris sans fil' │ 'Informatique' │ 28000  │ 12    │
+│ 2       │ 105 │ 'Casque audio'    │ 'Informatique' │ 70000  │ 0     │
+└─────────┴─────┴───────────────────┴────────────────┴────────┴───────┘
+┌─────────┬─────┬────────────────────┬────────────────┬────────┬───────┬─────────┐
+│ (index) │ id  │ nom                │ categorie      │ prixFC │ stock │ prixUSD │
+├─────────┼─────┼────────────────────┼────────────────┼────────┼───────┼─────────┤
+│ 0       │ 101 │ 'Clé USB 32 Go'    │ 'Informatique' │ 14000  │ 25    │ 5       │
+│ 1       │ 102 │ 'Sac à dos Kadea'  │ 'Accessoires'  │ 42000  │ 0     │ 15      │
+│ 2       │ 103 │ 'Souris sans fil'  │ 'Informatique' │ 28000  │ 12    │ 10      │
+│ 3       │ 104 │ 'Gourde isotherme' │ 'Accessoires'  │ 21000  │ 8     │ 8       │
+│ 4       │ 105 │ 'Casque audio'     │ 'Informatique' │ 70000  │ 0     │ 25      │
+│ 5       │ 106 │ 'Carnet de notes'  │ 'Papeterie'    │ 7000   │ 40    │ 3       │
+└─────────┴─────┴────────────────────┴────────────────┴────────┴───────┴─────────┘
+┌───────────┬────────────────────┐
+│ (index)   │ Values             │
+├───────────┼────────────────────┤
+│ id        │ 104                │
+│ nom       │ 'Gourde isotherme' │
+│ categorie │ 'Accessoires'      │
+│ prixFC    │ 21000              │
+│ stock     │ 8                  │
+└───────────┴────────────────────┘
+Produit introuvable
+2 produits en rupture.
 
 **Source :** 
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+https://developer.mozilla.org/fr/docs/Web/API/console/table_static
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Comment afficher certaines colonnes avec console.table() et que renvoient find() et filter() lorsqu'aucun élément ne correspond ? »
 
 ## A4 — Le classement de la promo
 
