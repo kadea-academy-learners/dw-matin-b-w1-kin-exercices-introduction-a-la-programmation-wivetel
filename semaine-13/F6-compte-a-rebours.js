@@ -22,14 +22,20 @@ Recherche (à rédiger dans RECHERCHES.md) :
 
 // debut des codes
 
-let resultat = "";
+// Afficher seulement les nombres pairs
+for (let nombre = 10; nombre >= 1; nombre--) {
+    if (nombre % 2 === 0) {
+        console.log(nombre);
+    }
+}
 
+// Compte à rebours en sautant 5
 for (let nombre = 10; nombre >= 1; nombre--) {
     if (nombre === 5) {
         continue;
     }
 
-    resultat += `${nombre}, `;
+    console.log(nombre);
 }
 
-console.log(`${resultat}Décollage !`);
+console.log(`Décollage !`);
