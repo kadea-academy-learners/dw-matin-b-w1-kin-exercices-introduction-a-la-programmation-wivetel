@@ -616,16 +616,65 @@ https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/do...w
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+JavaScript représente les nombres décimaux en binaire et certains nombres comme `0.1` et `0.2` ne peuvent pas être représentés exactement.
+C'est pourquoi `0.1 + 0.2` peut donner `0.30000000000000004` au lieu de exactement `0.3`.
+`toFixed()` permet d'arrondir l'affichage à un nombre de décimales choisi, mais il retourne une chaîne de caractères (`string`).
+C'est donc un piège si on veut continuer à faire des calculs sans reconvertir le résultat en nombre.
+
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const calculerLivraison = (distanceKm, poidsKg, estUrgent = false) => {
+    let montant;
+
+    // Déterminer le tarif de base selon la distance
+    if (distanceKm <= 5) {
+        montant = 2000;
+    } else if (distanceKm <= 15) {
+        montant = 4000;
+    } else {
+        montant = 7000;
+    }
+
+    // Ajouter le supplément pour un colis de plus de 10 kg
+    if (poidsKg > 10) {
+        montant += 1500;
+    }
+
+    // Appliquer le tarif urgent
+    if (estUrgent) {
+        montant *= 1.5;
+    }
+
+    // Ajouter la TVA de 16 %
+    montant *= 1.16;
+
+    // Arrondir le résultat à l'entier
+    return Math.round(montant);
+};
+
+console.log(calculerLivraison(3, 2));
+console.log(calculerLivraison(10, 12, true));
+console.log(calculerLivraison(20, 5));
+
+> 2320
+> 9570
+> 8120
 
 **Source :** 
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+Voici les liens exacts de MDN :
+Pour comprendre les nombres en JavaScript (0.1 + 0.2) :
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number
+Pour toFixed() :
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+Pour Math.round() :
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Pourquoi 0.1 + 0.2 ne donne-t-il pas exactement 0.3 en JavaScript et pourquoi toFixed() peut-il poser problème pour continuer des calculs ? »
 
 ## A2 — Le moteur de paie v2
 
