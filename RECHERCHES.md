@@ -683,16 +683,70 @@ https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Ma
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+La méthode `.reduce()` parcourt les éléments d'un tableau pour les combiner et obtenir une seule valeur finale.
+Elle utilise un accumulateur qui conserve le résultat obtenu après chaque élément parcouru.
+Par exemple, elle peut servir à calculer la somme de toutes les heures d'un tableau.
+Elle permet donc ici de remplacer le `.forEach()` et l'accumulateur `totalHeures`.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const heuresSemaine = [8, 9, 10, 8, 7, 6];
+const jours = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+
+// Étape 2 : calcul du total avec forEach() comme demandé dans la consigne
+let totalHeures = 0;
+
+heuresSemaine.forEach((heures) => {
+    totalHeures += heures;
+});
+
+// Recherche : réécriture de l'étape 2 avec reduce()
+const totalHeuresReduce = heuresSemaine.reduce((total, heures) => {
+    return total + heures;
+}, 0);
+
+// Calcul du salaire avec les heures supplémentaires
+const calculerSalaire = (heures, tauxHoraire = 2500) => {
+    if (heures <= 40) {
+        return heures * tauxHoraire;
+    }
+
+    const heuresSupplementaires = heures - 40;
+    const salaireNormal = 40 * tauxHoraire;
+    const salaireSupplementaire = heuresSupplementaires * tauxHoraire * 1.5;
+
+    return salaireNormal + salaireSupplementaire;
+};
+
+const salaire = calculerSalaire(totalHeures);
+
+// Recherche du jour le plus chargé avec une boucle for
+let indexJourCharge = 0;
+
+for (let i = 1; i < heuresSemaine.length; i++) {
+    if (heuresSemaine[i] > heuresSemaine[indexJourCharge]) {
+        indexJourCharge = i;
+    }
+}
+
+// Résultat principal demandé
+console.log(
+    `Total : ${totalHeures} h — Salaire : ${salaire} FC ; jour le plus chargé : ${jours[indexJourCharge]} (${heuresSemaine[indexJourCharge]} h).`
+);
+
+// Vérification de la réécriture avec reduce()
+console.log(`Total avec reduce() : ${totalHeuresReduce} h`);
+
+> Total : 48 h — Salaire : 130000 FC ; jour le plus chargé : mercredi (10 h).
+> Total avec reduce() : 48 h
 
 **Source :** 
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Que fait la méthode reduce() en JavaScript et comment l'utiliser pour calculer le total des valeurs d'un tableau ? »
 
 ## A3 — L'inventaire en console
 
