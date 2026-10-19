@@ -1004,13 +1004,35 @@ https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Ar
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+La recherche dichotomique consiste à diviser la zone de recherche en deux à chaque essai.
+On commence par le milieu, puis on garde seulement la moitié dans laquelle se trouve le nombre recherché.
+Entre 1 et 100, chaque essai réduit donc fortement le nombre de possibilités.
+Avec 7 essais, on peut distinguer jusqu'à 128 possibilités, car 2⁷ = 128, ce qui est supérieur à 100.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+Je cherche par exemple le nombre 73 entre 1 et 100 :
+
+1. 50 → plus grand
+2. 75 → plus petit
+3. 62 → plus grand
+4. 68 → plus grand
+5. 71 → plus grand
+6. 73 → trouvé
+
+**Résultat obtenu :**
+Le nombre 73 est trouvé en 6 essais.
 
 **Source :** 
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+MDN Web Docs — Math.random()
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+MDN Web Docs — Math.floor()
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Explique simplement la recherche dichotomique et pourquoi 7 essais suffisent pour trouver un nombre entre 1 et 100. »
+J'ai vérifié le principe avec le calcul 2 exposant 7 = 128.
