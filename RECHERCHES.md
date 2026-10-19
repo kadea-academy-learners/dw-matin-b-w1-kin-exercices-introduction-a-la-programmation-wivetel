@@ -458,16 +458,46 @@ La source officielle : [MDN — var](https://developer.mozilla.org/fr/docs/Web/J
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+L'ASI (Automatic Semicolon Insertion) est un mécanisme par lequel JavaScript peut ajouter automatiquement des points-virgules à certains endroits du code.
+Lorsqu'on met un retour à la ligne juste après `return`, JavaScript peut considérer l'instruction comme terminée et interpréter cela comme `return;`.
+La fonction retourne alors `undefined`, c'est pourquoi il faut placer la valeur à retourner sur la même ligne que `return`.
+
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
+const doubler = (n) => {
+    return n * 2;
+};
+
+console.log(doubler(4));
+
+
+const calculerTva = (prix) => {
+    return prix * 0.16;
+};
+
+const total = calculerTva(1000) + 500;
+console.log(total);
+
+
+const saluer = (prenom) => {
+    return `Mbote ${prenom}`;
+};
+
+console.log(saluer("Ney"));
+
+> 8
+> 660
+> Mbote Ney
 
 **Source :** 
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+[MDN — Automatic semicolon insertion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion)
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui — Prompt : « Explique l'insertion automatique de point-virgule (ASI) en JavaScript et son effet lorsqu'un retour à la ligne est placé après return. »
 
 ## M7 — La tirelire numérique
 
